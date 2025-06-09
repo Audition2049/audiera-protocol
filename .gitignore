@@ -1,0 +1,10 @@
+node_modules/
+artifacts/
+cache/
+hardhat.config.js
+.DS_Store
+owners.json
+package-lock.json
+
+yarn.lock
+.idea

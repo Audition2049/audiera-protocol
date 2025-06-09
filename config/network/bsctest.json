@@ -1,0 +1,23 @@
+{
+	"Beat": {
+		"contractName": "Beat",
+		"address": "0x13a0f77e6c12b4bd47c824fd299d9240ad553972",
+		"decimals": 18
+	},
+	"VeBeat": {
+		"contractName": "VeBeat",
+		"address": "0x48D0dA363ff284d6cEA0E3aC1Abd426F75d1F095"
+	},
+	"VeBeatStaking": {
+		"contractName": "VeBeatStaking",
+		"address": "0xd32aa2c80a48C5412E864Fc0c8A9654Dfc056d0e"
+	},
+	"Vesting": {
+		"contractName": "Vesting",
+		"address": "0xEB4aA790BA3311C32cc15f91a7f990c838faEe9f"
+	},
+	"VeBeatVote": {
+		"contractName": "VeBeatVote",
+		"address": "0x8331d99eA8E91Ac88Ce1A030697034a680535AE4"
+	}
+}

@@ -1,0 +1,1028 @@
+[
+    {
+        "anonymous": false,
+        "inputs": [
+            {
+                "indexed": true,
+                "internalType": "address",
+                "name": "_voter",
+                "type": "address"
+            },
+            {
+                "indexed": true,
+                "internalType": "uint32",
+                "name": "_roundNum",
+                "type": "uint32"
+            },
+            {
+                "indexed": false,
+                "internalType": "uint256",
+                "name": "_numOfVotes",
+                "type": "uint256"
+            },
+            {
+                "indexed": false,
+                "internalType": "uint256",
+                "name": "_rewards",
+                "type": "uint256"
+            }
+        ],
+        "name": "Claim",
+        "type": "event"
+    },
+    {
+        "anonymous": false,
+        "inputs": [
+            {
+                "indexed": true,
+                "internalType": "address",
+                "name": "_sender",
+                "type": "address"
+            },
+            {
+                "indexed": true,
+                "internalType": "uint32",
+                "name": "_roundNum",
+                "type": "uint32"
+            },
+            {
+                "indexed": false,
+                "internalType": "uint32",
+                "name": "_rank_1_index",
+                "type": "uint32"
+            },
+            {
+                "indexed": false,
+                "internalType": "uint32",
+                "name": "_rank_2_index",
+                "type": "uint32"
+            },
+            {
+                "indexed": false,
+                "internalType": "uint32",
+                "name": "_rank_3_index",
+                "type": "uint32"
+            }
+        ],
+        "name": "CountingVotes",
+        "type": "event"
+    },
+    {
+        "anonymous": false,
+        "inputs": [
+            {
+                "indexed": true,
+                "internalType": "address",
+                "name": "previousOwner",
+                "type": "address"
+            },
+            {
+                "indexed": true,
+                "internalType": "address",
+                "name": "newOwner",
+                "type": "address"
+            }
+        ],
+        "name": "OwnershipTransferred",
+        "type": "event"
+    },
+    {
+        "anonymous": false,
+        "inputs": [
+            {
+                "indexed": false,
+                "internalType": "address",
+                "name": "account",
+                "type": "address"
+            }
+        ],
+        "name": "Paused",
+        "type": "event"
+    },
+    {
+        "anonymous": false,
+        "inputs": [
+            {
+                "indexed": false,
+                "internalType": "address",
+                "name": "_rank_1_owner",
+                "type": "address"
+            },
+            {
+                "indexed": false,
+                "internalType": "uint256",
+                "name": "_rank_1_rewards",
+                "type": "uint256"
+            },
+            {
+                "indexed": false,
+                "internalType": "address",
+                "name": "_rank_2_owner",
+                "type": "address"
+            },
+            {
+                "indexed": false,
+                "internalType": "uint256",
+                "name": "_rank_2_rewards",
+                "type": "uint256"
+            },
+            {
+                "indexed": false,
+                "internalType": "address",
+                "name": "_rank_3_owner",
+                "type": "address"
+            },
+            {
+                "indexed": false,
+                "internalType": "uint256",
+                "name": "_rank_3_rewards",
+                "type": "uint256"
+            }
+        ],
+        "name": "RankRewards",
+        "type": "event"
+    },
+    {
+        "anonymous": false,
+        "inputs": [
+            {
+                "indexed": false,
+                "internalType": "uint256[10]",
+                "name": "_songIds",
+                "type": "uint256[10]"
+            },
+            {
+                "indexed": false,
+                "internalType": "address[10]",
+                "name": "_users",
+                "type": "address[10]"
+            },
+            {
+                "indexed": false,
+                "internalType": "uint32",
+                "name": "_startTime",
+                "type": "uint32"
+            },
+            {
+                "indexed": false,
+                "internalType": "uint32",
+                "name": "_round",
+                "type": "uint32"
+            }
+        ],
+        "name": "SetVotingSongs",
+        "type": "event"
+    },
+    {
+        "anonymous": false,
+        "inputs": [
+            {
+                "indexed": false,
+                "internalType": "address",
+                "name": "account",
+                "type": "address"
+            }
+        ],
+        "name": "Unpaused",
+        "type": "event"
+    },
+    {
+        "anonymous": false,
+        "inputs": [
+            {
+                "indexed": true,
+                "internalType": "address",
+                "name": "_voter",
+                "type": "address"
+            },
+            {
+                "indexed": true,
+                "internalType": "uint32",
+                "name": "_index",
+                "type": "uint32"
+            },
+            {
+                "indexed": false,
+                "internalType": "uint256",
+                "name": "_numOfVotes",
+                "type": "uint256"
+            }
+        ],
+        "name": "Vote",
+        "type": "event"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "",
+                "type": "address"
+            }
+        ],
+        "name": "authControllers",
+        "outputs": [
+            {
+                "internalType": "bool",
+                "name": "",
+                "type": "bool"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "_token",
+                "type": "address"
+            }
+        ],
+        "name": "balanceOf",
+        "outputs": [
+            {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "beat",
+        "outputs": [
+            {
+                "internalType": "address",
+                "name": "",
+                "type": "address"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "uint32",
+                "name": "_roundNum",
+                "type": "uint32"
+            }
+        ],
+        "name": "claim",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "countingVotes",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "currentRoundVoting",
+        "outputs": [
+            {
+                "components": [
+                    {
+                        "internalType": "bool",
+                        "name": "closed",
+                        "type": "bool"
+                    },
+                    {
+                        "internalType": "uint32",
+                        "name": "roundNum",
+                        "type": "uint32"
+                    },
+                    {
+                        "internalType": "uint32",
+                        "name": "startTime",
+                        "type": "uint32"
+                    },
+                    {
+                        "internalType": "uint32",
+                        "name": "endTime",
+                        "type": "uint32"
+                    },
+                    {
+                        "internalType": "uint32",
+                        "name": "claimTime",
+                        "type": "uint32"
+                    },
+                    {
+                        "internalType": "uint32",
+                        "name": "numOfVoters",
+                        "type": "uint32"
+                    },
+                    {
+                        "internalType": "uint32",
+                        "name": "rank_1_index",
+                        "type": "uint32"
+                    },
+                    {
+                        "internalType": "uint32",
+                        "name": "rank_2_index",
+                        "type": "uint32"
+                    },
+                    {
+                        "internalType": "uint32",
+                        "name": "rank_3_index",
+                        "type": "uint32"
+                    },
+                    {
+                        "internalType": "uint256",
+                        "name": "totalNumOfVotes",
+                        "type": "uint256"
+                    },
+                    {
+                        "internalType": "uint256[10]",
+                        "name": "songIds",
+                        "type": "uint256[10]"
+                    },
+                    {
+                        "internalType": "uint256[10]",
+                        "name": "numOfVotesPerSong",
+                        "type": "uint256[10]"
+                    },
+                    {
+                        "internalType": "address[10]",
+                        "name": "songOwners",
+                        "type": "address[10]"
+                    }
+                ],
+                "internalType": "struct VeBeatVote.RoundVotingRecords",
+                "name": "roundVoting",
+                "type": "tuple"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "each_voter_increases_rewards",
+        "outputs": [
+            {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "uint32",
+                "name": "_index",
+                "type": "uint32"
+            },
+            {
+                "internalType": "uint32",
+                "name": "_len",
+                "type": "uint32"
+            }
+        ],
+        "name": "getRoundVotingRercords",
+        "outputs": [
+            {
+                "components": [
+                    {
+                        "internalType": "bool",
+                        "name": "closed",
+                        "type": "bool"
+                    },
+                    {
+                        "internalType": "uint32",
+                        "name": "roundNum",
+                        "type": "uint32"
+                    },
+                    {
+                        "internalType": "uint32",
+                        "name": "startTime",
+                        "type": "uint32"
+                    },
+                    {
+                        "internalType": "uint32",
+                        "name": "endTime",
+                        "type": "uint32"
+                    },
+                    {
+                        "internalType": "uint32",
+                        "name": "claimTime",
+                        "type": "uint32"
+                    },
+                    {
+                        "internalType": "uint32",
+                        "name": "numOfVoters",
+                        "type": "uint32"
+                    },
+                    {
+                        "internalType": "uint32",
+                        "name": "rank_1_index",
+                        "type": "uint32"
+                    },
+                    {
+                        "internalType": "uint32",
+                        "name": "rank_2_index",
+                        "type": "uint32"
+                    },
+                    {
+                        "internalType": "uint32",
+                        "name": "rank_3_index",
+                        "type": "uint32"
+                    },
+                    {
+                        "internalType": "uint256",
+                        "name": "totalNumOfVotes",
+                        "type": "uint256"
+                    },
+                    {
+                        "internalType": "uint256[10]",
+                        "name": "songIds",
+                        "type": "uint256[10]"
+                    },
+                    {
+                        "internalType": "uint256[10]",
+                        "name": "numOfVotesPerSong",
+                        "type": "uint256[10]"
+                    },
+                    {
+                        "internalType": "address[10]",
+                        "name": "songOwners",
+                        "type": "address[10]"
+                    }
+                ],
+                "internalType": "struct VeBeatVote.RoundVotingRecords[]",
+                "name": "details",
+                "type": "tuple[]"
+            },
+            {
+                "internalType": "uint8",
+                "name": "len",
+                "type": "uint8"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "_beat",
+                "type": "address"
+            },
+            {
+                "internalType": "address",
+                "name": "_veBeat",
+                "type": "address"
+            }
+        ],
+        "name": "initialize",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "max_num_of_rewards",
+        "outputs": [
+            {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "owner",
+        "outputs": [
+            {
+                "internalType": "address",
+                "name": "",
+                "type": "address"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "pause",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "paused",
+        "outputs": [
+            {
+                "internalType": "bool",
+                "name": "",
+                "type": "bool"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "rank_1_buf",
+        "outputs": [
+            {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "rank_1_rewards",
+        "outputs": [
+            {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "rank_2_buf",
+        "outputs": [
+            {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "rank_2_rewards",
+        "outputs": [
+            {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "rank_3_buf",
+        "outputs": [
+            {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "rank_3_rewards",
+        "outputs": [
+            {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "renounceOwnership",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "uint32",
+                "name": "",
+                "type": "uint32"
+            },
+            {
+                "internalType": "address",
+                "name": "",
+                "type": "address"
+            }
+        ],
+        "name": "roundToUserVotingIndex",
+        "outputs": [
+            {
+                "internalType": "uint32",
+                "name": "",
+                "type": "uint32"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }
+        ],
+        "name": "roundVotingRecords",
+        "outputs": [
+            {
+                "internalType": "bool",
+                "name": "closed",
+                "type": "bool"
+            },
+            {
+                "internalType": "uint32",
+                "name": "roundNum",
+                "type": "uint32"
+            },
+            {
+                "internalType": "uint32",
+                "name": "startTime",
+                "type": "uint32"
+            },
+            {
+                "internalType": "uint32",
+                "name": "endTime",
+                "type": "uint32"
+            },
+            {
+                "internalType": "uint32",
+                "name": "claimTime",
+                "type": "uint32"
+            },
+            {
+                "internalType": "uint32",
+                "name": "numOfVoters",
+                "type": "uint32"
+            },
+            {
+                "internalType": "uint32",
+                "name": "rank_1_index",
+                "type": "uint32"
+            },
+            {
+                "internalType": "uint32",
+                "name": "rank_2_index",
+                "type": "uint32"
+            },
+            {
+                "internalType": "uint32",
+                "name": "rank_3_index",
+                "type": "uint32"
+            },
+            {
+                "internalType": "uint256",
+                "name": "totalNumOfVotes",
+                "type": "uint256"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "roundVotingRecordsLength",
+        "outputs": [
+            {
+                "internalType": "uint32",
+                "name": "",
+                "type": "uint32"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "_controller",
+                "type": "address"
+            },
+            {
+                "internalType": "bool",
+                "name": "_enable",
+                "type": "bool"
+            }
+        ],
+        "name": "setAuthControllers",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "uint256",
+                "name": "_rewards",
+                "type": "uint256"
+            }
+        ],
+        "name": "setEachVoterIncreasesRewards",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "uint256",
+                "name": "_rewards",
+                "type": "uint256"
+            }
+        ],
+        "name": "setMaxRewards",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "uint256",
+                "name": "_rank_1_buf",
+                "type": "uint256"
+            },
+            {
+                "internalType": "uint256",
+                "name": "_rank_2_buf",
+                "type": "uint256"
+            },
+            {
+                "internalType": "uint256",
+                "name": "_rank_3_buf",
+                "type": "uint256"
+            }
+        ],
+        "name": "setRankBuf",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "uint256",
+                "name": "_rank_1_rewards",
+                "type": "uint256"
+            },
+            {
+                "internalType": "uint256",
+                "name": "_rank_2_rewards",
+                "type": "uint256"
+            },
+            {
+                "internalType": "uint256",
+                "name": "_rank_3_rewards",
+                "type": "uint256"
+            }
+        ],
+        "name": "setRankRewards",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "uint256[10]",
+                "name": "_songIds",
+                "type": "uint256[10]"
+            },
+            {
+                "internalType": "address[10]",
+                "name": "_owners",
+                "type": "address[10]"
+            },
+            {
+                "internalType": "uint32",
+                "name": "_startTime",
+                "type": "uint32"
+            }
+        ],
+        "name": "setVotingSongs",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "uint32",
+                "name": "_duration",
+                "type": "uint32"
+            },
+            {
+                "internalType": "uint32",
+                "name": "_countdown",
+                "type": "uint32"
+            }
+        ],
+        "name": "setVotingTime",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "newOwner",
+                "type": "address"
+            }
+        ],
+        "name": "transferOwnership",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "unpause",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }
+        ],
+        "name": "userVotingRecords",
+        "outputs": [
+            {
+                "internalType": "uint256",
+                "name": "songIndex",
+                "type": "uint256"
+            },
+            {
+                "internalType": "uint256",
+                "name": "numOfVotes",
+                "type": "uint256"
+            },
+            {
+                "internalType": "uint256",
+                "name": "claimedRewards",
+                "type": "uint256"
+            },
+            {
+                "internalType": "address",
+                "name": "user",
+                "type": "address"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "veBeat",
+        "outputs": [
+            {
+                "internalType": "contract VeBeat",
+                "name": "",
+                "type": "address"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "uint32",
+                "name": "_index",
+                "type": "uint32"
+            },
+            {
+                "internalType": "uint256",
+                "name": "_numOfVotes",
+                "type": "uint256"
+            }
+        ],
+        "name": "vote",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "_user",
+                "type": "address"
+            },
+            {
+                "internalType": "uint32",
+                "name": "_roundNum",
+                "type": "uint32"
+            }
+        ],
+        "name": "voterInfo",
+        "outputs": [
+            {
+                "internalType": "uint256",
+                "name": "voteIndex",
+                "type": "uint256"
+            },
+            {
+                "internalType": "uint256",
+                "name": "numOfVotes",
+                "type": "uint256"
+            },
+            {
+                "internalType": "uint256",
+                "name": "pendingRewards",
+                "type": "uint256"
+            },
+            {
+                "internalType": "uint256",
+                "name": "claimedRewards",
+                "type": "uint256"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "votingCountdown",
+        "outputs": [
+            {
+                "internalType": "uint32",
+                "name": "",
+                "type": "uint32"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "votingDuration",
+        "outputs": [
+            {
+                "internalType": "uint32",
+                "name": "",
+                "type": "uint32"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "_token",
+                "type": "address"
+            },
+            {
+                "internalType": "address",
+                "name": "_to",
+                "type": "address"
+            },
+            {
+                "internalType": "uint256",
+                "name": "_amount",
+                "type": "uint256"
+            }
+        ],
+        "name": "withdraw",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    }
+]

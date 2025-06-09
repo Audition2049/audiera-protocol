@@ -1,0 +1,10 @@
+{
+    "rank_1_rewards": 1000,
+    "rank_2_rewards": 500,
+    "rank_3_rewards": 200,
+    "rank_1_buf": 0.5,
+    "rank_2_buf": 0.25,
+    "rank_3_buf": 0.1,
+    "each_vote_increases_num_of_rewards": 50,
+    "max_num_of_rewards": 50000
+}
