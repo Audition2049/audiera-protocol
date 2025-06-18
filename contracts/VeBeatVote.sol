@@ -153,7 +153,7 @@ contract VeBeatVote is  OwnableUpgradeable, PausableUpgradeable  {
     function vote(uint32 _index, uint256 _numOfVotes) external whenNotPaused {
         address sender = _msgSender();
         require(_index > 0 && _index <= 10, "Invalid index");
-        require(_numOfVotes > 0, "Invalid numOfVotes");
+        require(_numOfVotes >= 1e18, "Invalid numOfVotes");
         uint256 userVeBeatBalance = veBeat.balanceOf(sender);
         require(userVeBeatBalance >= _numOfVotes, "Not enough veBeat");
         veBeat.burnFrom(sender, _numOfVotes);
