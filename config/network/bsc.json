@@ -2,5 +2,17 @@
 	"Beat": {
 		"contractName": "Beat",
 		"address": "0xcf3232B85b43BCa90E51D38cc06Cc8bB8C8A3E36"
+	},
+	"VeBeat": {
+		"contractName": "VeBeat",
+		"address": "0xEfe7E0812d9f0473bc0Ea15e097c6035551bCC14"
+	},
+	"VeBeatStaking": {
+		"contractName": "VeBeatStaking",
+		"address": "0x30B0E1D1796EF2BC3e838F8047886690d17e93dD"
+	},
+	"VeBeatVote": {
+		"contractName": "VeBeatVote",
+		"address": "0xe554229bA6ec7cEEacd13a9Bb48D812BF705c292"
 	}
 }
