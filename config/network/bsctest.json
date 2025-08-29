@@ -19,5 +19,9 @@
 	"VeBeatVote": {
 		"contractName": "VeBeatVote",
 		"address": "0x8331d99eA8E91Ac88Ce1A030697034a680535AE4"
+	},
+	"Pay": {
+		"contractName": "Pay",
+		"address": "0x4B7Bedba6147eaBD91089766A044C1fC21c26E7F"
 	}
 }
