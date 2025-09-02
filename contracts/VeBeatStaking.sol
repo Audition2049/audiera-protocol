@@ -121,11 +121,6 @@ contract VeBeatStaking is  OwnableUpgradeable {
         VEBEAT_PER_SHARE_PER_SEC_PRECISION = 1e18;
     }
 
-    function setBeat(address _beat) external onlyOwner {
-        require(_beat != address(0));
-        beat = IERC20(_beat);
-    }
-
     /// @notice Set maxCapPct
     /// @param _maxCapPct The new maxCapPct
     function setMaxCapPct(uint256 _maxCapPct) external onlyOwner {

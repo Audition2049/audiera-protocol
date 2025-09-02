@@ -25,12 +25,14 @@ contract AirdropBeat is OwnableUpgradeable, PausableUpgradeable {
     struct ClaimSignDetail {
         uint256 rewards;
         address claimer;
+        uint256 chainId;
     }
 
     struct ClaimSignDetail2 {
         uint256 rewards;
         address claimer;
         address referral;
+        uint256 chainId;
     }
 
     mapping(address => ClaimInfo) public mapUserToClaim;
@@ -48,6 +50,9 @@ contract AirdropBeat is OwnableUpgradeable, PausableUpgradeable {
 
     event Claim(address indexed account, uint256 totalRewards, uint256 curRewards, uint32 nextClaimTime);
     event Claim2(address indexed account, address indexed referral, uint256 totalRewards, uint256 curRewards, uint32 nextClaimTime, uint32 drawAmount);
+    event SetParams(address _beatToken, uint32 _firstClaimTime, uint32 _gapTime, address _signer);
+    event SetRewardActivities(uint32 _buf, uint32 _startTime, uint32 _endTime, uint32 _maxCount);
+    event SetDrawInfo(uint32 _maxDrawCountPerDay, uint32 _minDrawAmount, uint32 _maxDrawAmount);
 
     function initialize() external initializer {
         __Ownable_init();
@@ -73,7 +78,8 @@ contract AirdropBeat is OwnableUpgradeable, PausableUpgradeable {
         beatToken = _beatToken;
         firstClaimTime = _firstClaimTime;
         gapTime = _gapTime;
-        authSigner = _signer; 
+        authSigner = _signer;
+        emit SetParams(_beatToken, _firstClaimTime, _gapTime, _signer); 
     }
 
     function setRewardActivities(uint32 _buf, uint32 _startTime, uint32 _endTime, uint32 _maxCount) onlyOwner external {
@@ -83,6 +89,7 @@ contract AirdropBeat is OwnableUpgradeable, PausableUpgradeable {
         rewardStartTime = _startTime;
         rewardEndTime = _endTime;
         maxRewardCountPerDay = _maxCount;
+        emit SetRewardActivities(_buf, _startTime, _endTime, _maxCount);
     }
 
     function setDrawInfo(uint32 _maxDrawCountPerDay, uint32 _minDrawAmount, uint32 _maxDrawAmount) onlyOwner() external {
@@ -90,6 +97,7 @@ contract AirdropBeat is OwnableUpgradeable, PausableUpgradeable {
         maxDrawCountPerDay = _maxDrawCountPerDay;
         minDrawAmount = _minDrawAmount;
         maxDrawAmount = _maxDrawAmount;
+        emit SetDrawInfo(_maxDrawCountPerDay, _minDrawAmount, _maxDrawAmount);
     }
 
     function airdrop(address[] memory _uesrs, address _token, uint256 _amount) external {
@@ -172,6 +180,7 @@ contract AirdropBeat is OwnableUpgradeable, PausableUpgradeable {
         require(curTime >= firstClaimTime, "Not start");
         require(msg.sender.balance >= minBalance, "Account balance does not meet the requirement");
         require(isSignatureValid(_sigDetail, keccak256(abi.encode(_detail)), authSigner), 'Signature error');
+        require(_detail.chainId == block.chainid, "Invalid network");
         require(_detail.claimer == _msgSender(), "Invalid claimer");
         ClaimInfo memory info = mapUserToClaim[_detail.claimer];
         require(_detail.rewards > info.claimedAmount, "Invalid rewards");
@@ -190,6 +199,7 @@ contract AirdropBeat is OwnableUpgradeable, PausableUpgradeable {
         require(curTime >= firstClaimTime, "Not start");
         require(msg.sender.balance >= minBalance, "Account balance does not meet the requirement");
         require(isSignatureValid(_sigDetail, keccak256(abi.encode(_detail)), authSigner), 'Signature error');
+        require(_detail.chainId == block.chainid, "Invalid network");
         require(_detail.claimer == _msgSender(), "Invalid claimer");
         ClaimInfo memory info = mapUserToClaim[_detail.claimer];
         require(_detail.rewards > info.claimedAmount, "Invalid rewards");
