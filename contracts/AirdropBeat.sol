@@ -217,7 +217,8 @@ contract AirdropBeat is OwnableUpgradeable, PausableUpgradeable {
 
             if (mapDrawCountPerDay[pTime] < maxDrawCountPerDay && maxDrawAmount > 0) {
                 uint32 gap = maxDrawAmount - minDrawAmount + 1;
-                drawAmount = curTime % gap + minDrawAmount;
+                uint random = uint(blockhash(block.number - 1));
+                drawAmount = random % gap + minDrawAmount;
                 curRewards += drawAmount * 1e18;
                 mapDrawCountPerDay[pTime] += 1;
                 mapUserToDrawAmount[_detail.claimer] += drawAmount;
