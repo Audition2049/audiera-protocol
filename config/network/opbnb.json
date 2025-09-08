@@ -1,0 +1,10 @@
+{
+	"BeatAmplifierTratis": {
+		"contractName": "BeatAmplifierTratis",
+		"address": "0x34848029F22adef50EBaede49Cb65B00c5F2aaF1"
+	},
+	"BeatAmplifier": {
+		"contractName": "BeatAmplifier",
+		"address": "0xf72b1831AEE050A11648fCBeF3F862858deA7604"
+	}
+}
